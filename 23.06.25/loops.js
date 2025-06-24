@@ -83,5 +83,3 @@ function swapCase(str) {
 
     return res.join(' ');
 }
-
-console.log(swapCase("helLo WORld!"));
