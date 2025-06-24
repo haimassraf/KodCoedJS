@@ -27,15 +27,19 @@ function showFirstAndLast(arr) {
 
 // Exercise 4
 function vowelCount(str) {
-    const obj = {};
-    for (let char of str) {
-        if (char in obj) {
-            obj[char]++;
+    const obj = {
+        'a': 0,
+        'e': 0,
+        'i': 0,
+        'o': 0,
+        'u': 0
+    };
+    const letters = str.toLowerCase().split('');
+    letters.forEach((letter)=> {
+        if (letter in obj){
+            obj[letter] ++;
         }
-        else {
-            obj[char] = 1;
-        }
-    }
+    })
     return obj;
 }
 
