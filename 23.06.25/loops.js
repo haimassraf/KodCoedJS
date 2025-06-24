@@ -35,9 +35,9 @@ function vowelCount(str) {
         'u': 0
     };
     const letters = str.toLowerCase().split('');
-    letters.forEach((letter)=> {
-        if (letter in obj){
-            obj[letter] ++;
+    letters.forEach((letter) => {
+        if (letter in obj) {
+            obj[letter]++;
         }
     })
     return obj;
@@ -46,9 +46,10 @@ function vowelCount(str) {
 // Exercise 5
 function capitalize(str) {
     let newStr = "";
-    for (let char of str) {
-        newStr += char.toUpperCase();
-    }
+    const letters = str.split('');
+    letters.forEach((letter) => {
+        newStr += letter.toUpperCase();
+    })
     return newStr;
 }
 
@@ -56,7 +57,8 @@ function capitalize(str) {
 
 function shiftLetters(str) {
     let newStr = "";
-    for (let char of str) {
+    const letters = str.split('');
+    letters.forEach((char) => {
         if (char >= 'a' && char <= 'z') {
             newStr += char === 'z' ? 'a' : String.fromCharCode(char.charCodeAt(0) + 1);
         }
@@ -66,17 +68,17 @@ function shiftLetters(str) {
         else {
             newStr += char;
         }
-    }
+    })
     return newStr;
 }
 
 
 // Exercise 7
-function swapCase(str){
+function swapCase(str) {
     const words = str.split(' ');
 
     const res = words.map((v, i) => {
-        return i % 2 === 0? v.toLowerCase(): v.toUpperCase();
+        return i % 2 === 0 ? v.toLowerCase() : v.toUpperCase();
     });
 
     return res.join(' ');
