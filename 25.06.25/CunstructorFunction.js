@@ -76,3 +76,93 @@ dog.bark();
 
 
 // Exercise 5 - vehicle & car
+const Vehicle = function(type){
+    this.type = type;
+    this.describe = function(){
+        console.log(`This is a ${this.type}`);
+    }
+}
+
+const Car = function(brand, vehicleParent){
+    this.brand = brand;
+    this.info = function(){
+        console.log(`This is a ${this.brand} ${this.type}`);
+    }
+    Object.setPrototypeOf(this, vehicleParent)
+}
+
+
+const car = new Vehicle('car');
+const bmw = new Car('BMW', car);
+bmw.describe();
+bmw.info();
+
+// Exercise 6 - shape polymorphism
+const Shape = function(){
+    this.area = function(){
+        return 0;
+    }
+}
+
+const Circle = function(radius, shapeParent){
+    this.radius = radius;
+    this.area = function(){
+        return Math.PI * (radius * radius)
+    }
+    Object.setPrototypeOf(this, shapeParent);
+}
+
+const Square = function(side, shapeParent){
+    this.side = side;
+    this.area = function(){
+        return side * side;
+    }
+    Object.setPrototypeOf(this, shapeParent);
+}
+
+const shape = new Shape();
+const circle = new Circle(3, shape);
+const square = new Square(4, shape);
+console.log(shape.area());
+console.log(circle.area());
+console.log(square.area());
+
+
+// Exercise 7 - Book
+class Book{
+    constructor(title, author){
+        this.title = title;
+        this.author = author;
+    }
+    info(){
+        console.log(`${this.title} by ${this.author}`);
+    }
+}
+
+const theHobbit = new Book('The Hobbit', 'Tolkien');
+theHobbit.info();
+
+// Exercise 8 - Person & student
+class Person{
+    constructor(name){
+        this.name = name;
+    }
+    greet(){
+        console.log(`Hello, im ${this.name}`);
+    }
+}
+
+class student extends Person{
+    constructor(name, school){
+        super(name);
+        this.school = school;
+    }
+    study(){
+        console.log(`${this.name} is studting at ${this.school}`);
+    }
+}
+
+const haim = new student('haim', 'kodecod');
+haim.greet();
+haim.study();
+
