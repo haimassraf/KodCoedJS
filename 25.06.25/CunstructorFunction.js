@@ -166,3 +166,16 @@ const haim = new student('haim', 'kodecod');
 haim.greet();
 haim.study();
 
+// Exercise 8 - Employee & manager
+class Employee{
+    #salary
+    constructor (salary){
+        this.#salary = salary;
+    }
+    getSalary(){
+        return this.#salary;
+    }
+    work(){
+        console.log("Employee is working");
+    }
+}
