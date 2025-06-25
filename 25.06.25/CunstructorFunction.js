@@ -166,6 +166,7 @@ const haim = new student('haim', 'kodecod');
 haim.greet();
 haim.study();
 
+
 // Exercise 8 - Employee & manager
 class Employee{
     #salary
@@ -179,3 +180,20 @@ class Employee{
         console.log("Employee is working");
     }
 }
+
+class Manager extends Employee{
+    constructor(salary){
+        super(salary);
+    }
+    work(){
+        console.log("Manager is managing");
+    }
+}
+
+const employee = new Employee(400);
+const manager = new Manager(500);
+console.log(employee.getSalary());
+employee.work();
+
+console.log(manager.getSalary());
+manager.work()
