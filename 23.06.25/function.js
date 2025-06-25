@@ -26,4 +26,12 @@ function test() {
       let x = 10;
    }
    console.log(x);
-}              
+}
+
+function Person(name, age) {
+   this.name = name;
+   this.age = age;
+}
+
+const newPerson = new Person('haim', 24);
+console.log(newPerson);
