@@ -1,26 +1,30 @@
 import * as fs from 'node:fs';
 import os from 'node:os';
 
+
 // Exercice 1
-fs.readFile('file.txt', 'utf8', (err, data) => {
-    if (err) {
-        console.error("Error: ", err);
-        return;
-    }
-
-    console.log("File Content:");
-    console.log(data);
-
-    fs.stat('file.txt', (err, stats) => {
+const p1 = new Promise((resolve, rejects) => {
+    fs.readFile("file.txt", "utf8", (err, file) => {
         if (err) {
-            console.error("Error: ", err);
+            rejects(err);
+        }
+        resolve(file);
+    })
+})
+
+p1.then((file) =>
+    fs.stat("file.txt", (err, data) => {
+        if (err) {
+            console.log("Error: ", err);
             return;
         }
-
-        console.log(`Size: ${stats.size} bytes`);
-        console.log(`Created At: ${stats.birthtime.toLocaleDateString()}`);
-    });
-});
+        console.log("File content:");
+        console.log(file);
+        console.log(`Size: ${data.size} bytes`);
+        console.log(`Created At: ${data.birthtime.toLocaleDateString()}`);
+    })
+)
+.catch((err) => console.log("Error rej: ", err))
 
 
 // Exercise 2
@@ -57,10 +61,10 @@ counter(5)
 
 
 // Exercise 4
-fs.readFile("file.txt", "utf8", (err, data) =>{
-    if(err){
+fs.readFile("file.txt", "utf8", (err, data) => {
+    if (err) {
         console.log("Error ", err);
-        return
+        return;
     }
     const allLines = data.split('\n');
     const randomIndex = Math.floor(Math.random() * allLines.length)
@@ -81,4 +85,4 @@ const timer = setInterval(() => {
         clearInterval(timer);
     }
     cnt--;
-}, 1000)
+}, 2000)
