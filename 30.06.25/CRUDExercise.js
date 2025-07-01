@@ -91,7 +91,8 @@ function updateById(id, newData){
                     return;
                 }
 
-                data[i] = newData;
+                data[i].name = newData.name? newData.name: data[i].name;
+                data[i].lastName = newData.lastName? newData.lastName: data[i].lastName;
                 fs.writeFile("db.txt", JSON.stringify(data), (err) => {
                     if (err) {
                         rej("Error: " + err);
@@ -107,8 +108,7 @@ function updateById(id, newData){
 }
 
 const newObject = {
-    "name": "david",
-    "lastName": "assraf"
+    "lastName": "king"
 }
 updateById(2, newObject)
 .then((log) => console.log(log))
