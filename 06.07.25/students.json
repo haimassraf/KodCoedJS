@@ -1,0 +1,22 @@
+[
+    {
+        "name": "haim",
+        "lastName": "assraf",
+        "grade": 100
+    },
+    {
+        "name": "shlomo",
+        "lastName": "hemlich",
+        "grade": 90
+    },
+    {
+        "name": "haim",
+        "lastName": "king",
+        "grade": 85
+    },
+    {
+        "name": "haim",
+        "lastName": "king",
+        "grade": 85
+    }
+]

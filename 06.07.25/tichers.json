@@ -1,0 +1,19 @@
+[
+    {
+        "name": "yishai",
+        "profention": "programing"
+    },
+    {
+        "name": "Hanan",
+        "profention": "math"
+    },
+    {
+        "name": "haim",
+        "lastName": "king",
+        "grade": 85
+    },
+    {
+        "name": "haim",
+        "profention": "king"
+    }
+]
